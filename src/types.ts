@@ -1,6 +1,6 @@
 interface PipelineStep {
     name : string;
-    script : string;
+    script : string[];
     artifacts? : string;
 }
 
@@ -11,4 +11,9 @@ interface PipelineConfig {
     }
 }
 
-export {PipelineStep, PipelineConfig};
+interface RunOptions {
+    pipelineFilePath? : string;
+    otherOptions? : string[];
+}
+
+export {PipelineStep, PipelineConfig, RunOptions};

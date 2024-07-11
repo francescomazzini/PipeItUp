@@ -3,6 +3,7 @@ import { Command } from 'commander';
 import { readFileSync } from 'fs';
 import yaml from 'yaml';
 import Docker from 'dockerode';
+import runPipelineLocally from './src/pipeItUp';
 
 const program = new Command();
 const docker = new Docker();
@@ -16,6 +17,7 @@ program.command('run')
   .description('Run the pipeline defined in bitbucket-pipelines.yml')
   .action(async () => {
     try {
+      await runPipelineLocally({});
       // const pipelineFile = readFileSync('./bitbucket-pipelines.yml', 'utf8');
       // const pipelineConfig = yaml.parse(pipelineFile);
       
