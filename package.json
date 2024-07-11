@@ -4,7 +4,9 @@
   "description": "A CLI tool for local execution of CI/CD pipelines (🎶You've got to pipe it up, don't you know, pipe it up...🎶)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node dist/index.ts"
   },
   "keywords": [],
   "author": "",
