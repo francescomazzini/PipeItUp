@@ -16,24 +16,24 @@ program.command('run')
   .description('Run the pipeline defined in bitbucket-pipelines.yml')
   .action(async () => {
     try {
-      const pipelineFile = readFileSync('./bitbucket-pipelines.yml', 'utf8');
-      const pipelineConfig = yaml.parse(pipelineFile);
+      // const pipelineFile = readFileSync('./bitbucket-pipelines.yml', 'utf8');
+      // const pipelineConfig = yaml.parse(pipelineFile);
       
     //   // TODO: Implement pipeline execution logic here
     //   console.log('Pipeline config:', pipelineConfig);
       
       // Example: Run a simple command in a Docker container
-      const container = await docker.createContainer({
-        Image: 'alpine',
-        Cmd: ['echo', 'Hello from the pipeline!'],
-        Tty: true
-      });
+      // const container = await docker.createContainer({
+      //   Image: 'alpine',
+      //   Cmd: ['echo', 'Hello from the pipeline!'],
+      //   Tty: true
+      // });
       
-      await container.start();
-      const output = await container.logs({stdout: true, stderr: true});
-      console.log(output.toString());
+      // await container.start();
+      // const output = await container.logs({stdout: true, stderr: true});
+      // console.log(output.toString());
       
-      await container.remove();
+      // await container.remove();
     } catch (error) {
       console.error('Error running pipeline:', error);
     }
