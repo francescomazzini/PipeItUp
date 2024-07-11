@@ -1,13 +1,11 @@
 
-import { Command } from 'commander';
 import { readFileSync, existsSync } from 'fs';
 import yaml from 'yaml';
-import Docker from 'dockerode';
 import { PipelineStep } from './types';
 
 const parsePipelineConfig = (pipelineFilePath : string) => {
     
-    if (existsSync(pipelineFilePath)) {
+    if (!existsSync(pipelineFilePath)) {
         throw new Error(`${pipelineFilePath} can't be found`);
     }
     
@@ -15,7 +13,7 @@ const parsePipelineConfig = (pipelineFilePath : string) => {
     const parsedPipelineConfig = yaml.parse(pipelineFile);
 
     return {
-        image : parsedPipelineConfig,
+        image : parsedPipelineConfig.image,
         pipelines : {
             default: parsedPipelineConfig.pipelines.default.map((step : any)  : PipelineStep=> ({
                 name: step.step.name,

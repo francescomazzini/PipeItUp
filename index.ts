@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
-import { readFileSync } from 'fs';
-import yaml from 'yaml';
 import Docker from 'dockerode';
 import runPipelineLocally from './src/pipeItUp';
 
@@ -18,24 +16,6 @@ program.command('run')
   .action(async () => {
     try {
       await runPipelineLocally({});
-      // const pipelineFile = readFileSync('./bitbucket-pipelines.yml', 'utf8');
-      // const pipelineConfig = yaml.parse(pipelineFile);
-      
-    //   // TODO: Implement pipeline execution logic here
-    //   console.log('Pipeline config:', pipelineConfig);
-      
-      // Example: Run a simple command in a Docker container
-      // const container = await docker.createContainer({
-      //   Image: 'alpine',
-      //   Cmd: ['echo', 'Hello from the pipeline!'],
-      //   Tty: true
-      // });
-      
-      // await container.start();
-      // const output = await container.logs({stdout: true, stderr: true});
-      // console.log(output.toString());
-      
-      // await container.remove();
     } catch (error) {
       console.error('Error running pipeline:', error);
     }

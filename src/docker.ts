@@ -14,8 +14,9 @@ const executePipeline = async (parsedPipeline : PipelineConfig) : Promise<string
             generalOutput += `Step output:\n${output}`;
         } catch (error) {
             generalOutput += `Error executing step ${step.name}:`, error;
-            break;
-            // throw error; // Stop execution on first error
+            // break;
+            console.log(generalOutput)
+            throw error; // Stop execution on first error
         }
     }
 
@@ -23,6 +24,11 @@ const executePipeline = async (parsedPipeline : PipelineConfig) : Promise<string
 }
 
 const runStep = async (step : PipelineStep, image : string) => {
+
+    // await docker.pull(image, {});
+    // console.log("Image pulled succesfully") # it looks its not actualling pulling the image and putting it in the local registry 
+    // TODO: find out best practice for managing the image pull
+
     const container = await docker.createContainer({
       Image: image,
       Cmd: ['/bin/sh', '-c', step.script.join(' && ')],
