@@ -1,0 +1,22 @@
+{
+  "name": "pipeitup",
+  "version": "1.0.0",
+  "description": "A CLI tool for local execution of CI/CD pipelines (🎶You've got to pipe it up, don't you know, pipe it up...🎶)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/dockerode": "^3.3.29",
+    "@types/node": "^20.14.10",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "dockerode": "^4.0.2",
+    "yaml": "^2.4.5"
+  }
+}
