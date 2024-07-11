@@ -1,0 +1,16 @@
+image: ubuntu:latest
+
+pipelines:
+  default:
+    - step:
+          name: Step 1
+          script:
+            - echo "This is the first step"
+    - step:
+          name: step2
+          script:
+            - echo "Step2 is being executed"
+    - step:
+          name: Step Three
+          script:
+            - echo "step3 executed in Debian"
